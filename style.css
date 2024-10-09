@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #ad3535;
+}
+
+.randomColorContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+}
+
+.hex-color,
+.rgb-color {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+h3 {
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #2a90af;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1f6c7d;
+}
+
+#hexColorCode,
+#rgbColorCode {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.slider-container label {
+  margin-right: 10px;
+  color: #555;
+}
+
+input[type="range"] {
+  width: 150px;
+}
+
+#copyMessage {
+  margin-top: 15px;
+  padding: 5px 10px;
+  color: #fff;
+  background-color: #4caf50;
+  border-radius: 5px;
+  display: none;
+  font-size: 0.9rem;
+}
