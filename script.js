@@ -10,14 +10,13 @@ const red = document.getElementById("red");
 const green = document.getElementById("green");
 const blue = document.getElementById("blue");
 
-// Generate Random HEX Color
+// Generate Random HEX Color on button click
 colorButton.addEventListener("click", () => {
   const hexColor = generateRandomHexColor();
-  hexContainer.style.backgroundColor = hexColor;
-  hexColorCode.innerText = hexColor;
+  updateHexColor(hexColor);
 });
 
-// Convert to Random HEX Color
+// Function to generate a random HEX color
 function generateRandomHexColor() {
   const characters = "0123456789ABCDEF";
   let hexColor = "#";
@@ -27,7 +26,16 @@ function generateRandomHexColor() {
   return hexColor;
 }
 
-// Update RGB Color
+// Update HEX color display and container background
+function updateHexColor(hexColor) {
+  hexContainer.style.backgroundColor = hexColor;
+  hexColorCode.innerText = hexColor;
+
+  // Update RGB equivalent
+  updateRGBFromHex(hexColor);
+}
+
+// Update RGB color based on slider values
 const updateRGBColor = () => {
   const rgbColor = `rgb(${red.value}, ${green.value}, ${blue.value})`;
   rgbContainer.style.backgroundColor = rgbColor;
@@ -38,6 +46,19 @@ const updateRGBColor = () => {
 red.addEventListener("input", updateRGBColor);
 green.addEventListener("input", updateRGBColor);
 blue.addEventListener("input", updateRGBColor);
+
+// Function to convert HEX to RGB
+function updateRGBFromHex(hexColor) {
+  const r = parseInt(hexColor.slice(1, 3), 16);
+  const g = parseInt(hexColor.slice(3, 5), 16);
+  const b = parseInt(hexColor.slice(5, 7), 16);
+
+  // Update RGB sliders and display
+  red.value = r;
+  green.value = g;
+  blue.value = b;
+  updateRGBColor();
+}
 
 // Copy HEX color code on click
 hexColorCode.addEventListener("click", () => copyToClipboard(hexColorCode));
